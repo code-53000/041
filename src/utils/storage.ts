@@ -73,21 +73,24 @@ export const loadFullConfig = (): LoadedConfig => {
       return saved
         ? {
             id: init.id,
-            isPlaying: saved.isPlaying ?? false,
+            isPlaying: false,
             volume: Math.min(100, Math.max(0, saved.volume ?? init.volume)),
           }
         : init;
     });
 
+    const previouslyPlaying = parsed.sounds
+      .filter((s) => s.isPlaying)
+      .map((s) => s.id);
+
     return {
       sounds,
-      previousActiveSounds: Array.isArray(parsed.previousActiveSounds)
-        ? parsed.previousActiveSounds
-        : [],
-      isGlobalPlaying:
-        typeof parsed.isGlobalPlaying === "boolean"
-          ? parsed.isGlobalPlaying
-          : sounds.some((s) => s.isPlaying),
+      previousActiveSounds: previouslyPlaying.length > 0
+        ? previouslyPlaying
+        : Array.isArray(parsed.previousActiveSounds)
+          ? parsed.previousActiveSounds
+          : [],
+      isGlobalPlaying: false,
     };
   } catch (e) {
     console.error("Failed to load config:", e);
