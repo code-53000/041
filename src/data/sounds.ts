@@ -23,7 +23,7 @@ export const SOUNDS: SoundData[] = [
     name: "细雨",
     description: "淅淅沥沥的雨声",
     icon: CloudRain,
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/03/10/audio_279f40bc34.mp3?filename=rain-on-umbrella-124475.mp3",
+    audioUrl: "/sounds/mixkit-light-rain-loop-2393.wav",
     defaultVolume: 60,
   },
   {
@@ -31,7 +31,7 @@ export const SOUNDS: SoundData[] = [
     name: "海浪",
     description: "轻柔的海浪拍岸",
     icon: Waves,
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=ocean-waves-112906.mp3",
+    audioUrl: "/sounds/mixkit-big-thunder-with-rain-1291.wav",
     defaultVolume: 55,
   },
   {
@@ -39,7 +39,7 @@ export const SOUNDS: SoundData[] = [
     name: "篝火",
     description: "温暖的篝火噼啪声",
     icon: Flame,
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/10/25/audio_946b3e44d6.mp3?filename=crackling-fireplace-151706.mp3",
+    audioUrl: "/sounds/mixkit-big-thunder-with-rain-1291.wav",
     defaultVolume: 50,
   },
   {
@@ -47,7 +47,7 @@ export const SOUNDS: SoundData[] = [
     name: "咖啡馆",
     description: "柔和的咖啡馆环境音",
     icon: Coffee,
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/10/30/audio_c8c8a73467.mp3?filename=coffee-shop-ambience-118235.mp3",
+    audioUrl: "/sounds/mixkit-light-rain-loop-2393.wav",
     defaultVolume: 40,
   },
   {
@@ -55,7 +55,7 @@ export const SOUNDS: SoundData[] = [
     name: "风声",
     description: "山间清风徐徐",
     icon: Wind,
-    audioUrl: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_9c7d1b9e17.mp3?filename=wind-howling-109364.mp3",
+    audioUrl: "/sounds/mixkit-big-thunder-with-rain-1291.wav",
     defaultVolume: 45,
   },
   {
@@ -63,7 +63,7 @@ export const SOUNDS: SoundData[] = [
     name: "鸟鸣",
     description: "清晨森林的鸟叫声",
     icon: Bird,
-    audioUrl: "https://cdn.pixabay.com/download/audio/2021/09/13/audio_bb80b4afd3.mp3?filename=forest-birds-6756.mp3",
+    audioUrl: "/sounds/mixkit-light-rain-loop-2393.wav",
     defaultVolume: 50,
   },
 ];

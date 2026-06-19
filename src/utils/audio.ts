@@ -96,6 +96,9 @@ export const fadeIn = async (
     instance.gainNode.gain.setValueAtTime(0, startTime);
     instance.gainNode.gain.linearRampToValueAtTime(normalizedTarget, endTime);
 
+    if (instance.audioContext.state === "suspended") {
+      instance.audioContext.resume();
+    }
     instance.audio.play().catch(() => {});
 
     const checkFadeComplete = () => {
