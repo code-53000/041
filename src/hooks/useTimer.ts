@@ -7,6 +7,7 @@ export const useTimer = () => {
   const isTimerRunning = useSoundStore((state) => state.isTimerRunning);
   const fadeOutAll = useSoundStore((state) => state.fadeOutAll);
   const hasFaded = useRef(false);
+  const prevTimerRemaining = useRef<number>(timerRemaining);
 
   useEffect(() => {
     if (!isTimerRunning) return;
@@ -19,14 +20,19 @@ export const useTimer = () => {
   }, [isTimerRunning, tickTimer]);
 
   useEffect(() => {
-    if (timerRemaining === 0 && isTimerRunning && !hasFaded.current) {
+    const justReachedZero =
+      prevTimerRemaining.current > 0 && timerRemaining === 0;
+
+    if (justReachedZero && !hasFaded.current) {
       hasFaded.current = true;
       fadeOutAll();
       setTimeout(() => {
         hasFaded.current = false;
       }, 4000);
     }
-  }, [timerRemaining, isTimerRunning, fadeOutAll]);
+
+    prevTimerRemaining.current = timerRemaining;
+  }, [timerRemaining, fadeOutAll]);
 
   return null;
 };
