@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply bg-ambient-950 text-ambient-100 font-sans antialiased min-h-screen overflow-x-hidden;
+  }
+  
+  #root {
+    @apply min-h-screen;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+  
+  .glass-card-active {
+    @apply bg-accent-500/10 backdrop-blur-xl border border-accent-400/30 rounded-2xl;
+  }
+  
+  .btn-icon {
+    @apply inline-flex items-center justify-center rounded-xl transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+  
+  .slider-track {
+    @apply h-1.5 w-full rounded-full bg-white/10 overflow-hidden;
+  }
+  
+  .slider-fill {
+    @apply h-full bg-gradient-to-r from-accent-400 to-accent-300 rounded-full transition-all duration-150;
+  }
+  
+  .slider-thumb {
+    @apply absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white shadow-lg cursor-grab active:cursor-grabbing transition-transform duration-150 hover:scale-125;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .noise-bg {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+  
+  .gradient-bg {
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(45, 212, 191, 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(99, 102, 241, 0.1), transparent),
+      radial-gradient(ellipse 60% 40% at 20% 100%, rgba(139, 92, 246, 0.08), transparent),
+      linear-gradient(180deg, #0a1929 0%, #0f1e33 50%, #0a1929 100%);
+  }
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  @apply h-1.5 rounded-full bg-white/10;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  @apply w-4 h-4 rounded-full bg-white shadow-lg -mt-[5px] transition-transform duration-150 hover:scale-125;
+  background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+}
+
+input[type="range"]::-moz-range-track {
+  @apply h-1.5 rounded-full bg-white/10;
+}
+
+input[type="range"]::-moz-range-thumb {
+  @apply w-4 h-4 rounded-full bg-white shadow-lg border-0 transition-transform duration-150 hover:scale-125;
+  background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+}
